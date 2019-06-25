@@ -9,7 +9,7 @@ public class Login {
 	private String userName;		//used in loginPrompts to store the validated username
 	private String password;		//used in loginPrompts to store the validated password
 
-	public HashMap<String,Customer> customerLogin = new HashMap<>();		//hashmap for storing Customers and their login credentials
+	public static HashMap<String,Customer> customerLogin = new HashMap<>();		//hashmap for storing Customers and their login credentials
 	
 	//prompts the user to login validating their input 
 	public void loginPrompts() {
@@ -48,8 +48,12 @@ public class Login {
 	
 	//eventually checks username against data in the hashmap
 	public static boolean userNameChecker(String userName) {
-
-		return true;
+		boolean test ;
+		test = customerLogin.containsKey(userName);
+		if(test == false) {
+			System.out.println("Username is not in the database. Did you need to register?");
+		}
+		return test;
 	}
 
 	//eventually checks password against data in the hashmap
