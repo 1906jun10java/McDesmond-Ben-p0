@@ -1,9 +1,12 @@
 applyBackground=false
 approved.defs.file.last.changed.time=1554843829000
-configurationInstallLocation=/C\:/Users/davy_/eclipse/jee-2019-03/eclipse/
+codemix.dont.show.upsell.until=1562715997406
+configurationInstallLocation=/C\:/Program Files (x86)/eclipse/
 eclipse.preferences.version=1
 iconcolormode=primary
-last.download.attempt.time=1561404275814
-lastConfiguration=1561404060879
-newinstall=true
-workbench.theme=Dark Gray
+iconreplacement=false
+last.download.attempt.time=1561419995971
+lastConfiguration=1561420079167
+newinstall=false
+showWelcomeDialog=false
+workbench.theme=Dark Purple
