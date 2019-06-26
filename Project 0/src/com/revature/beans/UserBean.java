@@ -2,6 +2,11 @@ package com.revature.beans;
 
 public abstract class UserBean {
 	
+	public UserBean(String userName, String password) {
+		super();
+		this.userName = userName;
+		this.password = password;
+	}
 	private String userName;		//customer username
 	private String password;		//customer password
 	
