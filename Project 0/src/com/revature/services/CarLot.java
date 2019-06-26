@@ -9,7 +9,8 @@ public class CarLot {
 	
 	
 	//adds a car to the lot
-	public void addCar(Car car) {
+	public void addCar() {
+		Car c = new Car()
 		carLot.add(car);
 		return;
 	}
@@ -21,7 +22,7 @@ public class CarLot {
 	}
 	
 	//checks the lot for a car and returns the index of the car in the car lot
-	public int checkLotForCar(Car car) {
+	public static int checkLotForCar(Car car) {
 		
 		int index = 0;
 		
@@ -35,5 +36,11 @@ public class CarLot {
 	//prints all cars in the lot
 	public static void printTheLot() {
 		System.out.println(carLot.toString());
+	}
+	
+	public static void viewOffers(Car car) {
+		int index = checkLotForCar(car);
+		
+		carLot.get(index);
 	}
 }

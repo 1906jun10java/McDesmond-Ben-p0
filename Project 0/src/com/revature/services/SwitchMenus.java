@@ -7,7 +7,8 @@ public class SwitchMenus {
 	// holds the main menu prompts and switches based on user input
 	public void mainMenu() {
 
-		Scanner sc = new Scanner(System.in);
+		ScannerSingleton ss = ScannerSingleton.getInstance();
+		Scanner sc = ss.returnScanner();
 		
 		ELogin.addAdmin();
 		
@@ -117,7 +118,6 @@ public class SwitchMenus {
 
 			}
 		}
-		sc.close();
 	}
 
 }
