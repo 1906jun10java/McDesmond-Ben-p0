@@ -16,6 +16,8 @@ public class SwitchMenus {
 		//Adds a default admin user to the employee hashmap
 		ELogin.addAdmin();
 		
+		Utility ul = new Utility();
+		
 		//exits the main menu when turns true
 		boolean exitMain = false; 
 
@@ -38,13 +40,7 @@ public class SwitchMenus {
 			System.out.println("Please select an option: ");
 			
 			//while the user input is not a number
-			while (testInt == false) {
-				String userInput = sc.nextLine();		//takes user input and stores it into a string
-				testInt = Utility.tryParseInt(userInput);	//attempts to parse user input into a string and returns false if it can't
-				if (testInt == true) {						//if the tryParse test returns true
-					switchCase = Integer.parseInt(userInput);	//sets the userInput string as an int
-				}
-			}
+			switchCase = ul.parsedInt();
 			
 			//declares a switch on the user input parsed above
 			switch (switchCase) {					
