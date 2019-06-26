@@ -9,10 +9,17 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		SwitchMenus sm = new SwitchMenus();
+		//returns a reference to the singleton class ScannerSingleton
 		ScannerSingleton ss = ScannerSingleton.getInstance();
+		
+		
+		//returns a reference to the static scanner in the ScannerSingleton class
 		Scanner sc = ss.returnScanner();
-		sm.mainMenu();
+		
+		//opens the programs main menu
+		SwitchMenus.mainMenu();
+		
+		//closes the static scanner at the end of the program
 		sc.close();
 		
 	}

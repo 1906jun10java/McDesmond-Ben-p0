@@ -5,13 +5,13 @@ import com.revature.beans.Car;
 
 public class CarLot {
 	
-	static ArrayList<Car> carLot = new ArrayList<Car>();		//an arraylist for storing all the cars on the lot
+	static ArrayList<Car> carLot = new ArrayList<Car>();		//an array list for storing all the cars on the lot
 	
 	
 	//adds a car to the lot
-	public void addCar() {
-		Car c = new Car()
-		carLot.add(car);
+	public static void addCar(String color, String make ,String model, int year, int mileage) {
+		Car c = new Car(color,make,model,year,mileage);
+		carLot.add(c);
 		return;
 	}
 	
@@ -38,6 +38,7 @@ public class CarLot {
 		System.out.println(carLot.toString());
 	}
 	
+	//
 	public static void viewOffers(Car car) {
 		int index = checkLotForCar(car);
 		

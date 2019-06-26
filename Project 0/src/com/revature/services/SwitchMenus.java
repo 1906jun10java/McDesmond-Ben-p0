@@ -5,22 +5,30 @@ import java.util.Scanner;
 public class SwitchMenus {
 
 	// holds the main menu prompts and switches based on user input
-	public void mainMenu() {
+	public static void mainMenu() {
 
+		//returns a reference to the static ScannerSingleton class
 		ScannerSingleton ss = ScannerSingleton.getInstance();
+		
+		//returns a reference to the static scanner in ScannerSingleton
 		Scanner sc = ss.returnScanner();
 		
+		//Adds a default admin user to the employee hashmap
 		ELogin.addAdmin();
 		
-		boolean exitMain = false; // ends main when true
-		 //
+		//exits the main menu when turns true
+		boolean exitMain = false; 
 
+		//the switch case variable
 		int switchCase = 0;
 
+		//while boolean exitMain is not true
 		while (exitMain != true) {
 			
+			//used to test user input for a string parse
 			boolean testInt = false;
 			
+			//Prints out the main menu
 			System.out.println("Welcome to the car lot! How can we help you today?");
 			System.out.println("1) View cars on the lot");
 			System.out.println("2) Register for a customer account");
@@ -28,31 +36,36 @@ public class SwitchMenus {
 			System.out.println("4) Employee Login");
 			System.out.println("0) Exit the car lot");
 			System.out.println("Please select an option: ");
+			
+			//while the user input is not a number
 			while (testInt == false) {
-				String userInput = sc.nextLine();
-				testInt = Utility.tryParseInt(userInput);
-				if (testInt == true) {
-					switchCase = Integer.parseInt(userInput);
+				String userInput = sc.nextLine();		//takes user input and stores it into a string
+				testInt = Utility.tryParseInt(userInput);	//attempts to parse user input into a string and returns false if it can't
+				if (testInt == true) {						//if the tryParse test returns true
+					switchCase = Integer.parseInt(userInput);	//sets the userInput string as an int
 				}
 			}
+			
+			//declares a switch on the user input parsed above
+			switch (switchCase) {					
 
-			switch (switchCase) {
-
-			case 1:
+			case 1://user wants to see selection of cars on the lot
+				//refers to a method in the CarLot class in com.revature.services
 				CarLot.printTheLot();
 				break;
 
-			case 2:
-					String nUserName;
-					String nPassword;
+			case 2://customer wishes to make an account with the company 
+					String nUserName;	//stores a username
+					String nPassword;	//stores a password
 					
-					boolean cChecker;
+					boolean cChecker;	//checks the result of the login
 					
+					//sets the username to the value of the next line of user input
 					System.out.println("We're glad to have you as a customer");
-					
 					System.out.println("Please enter your desired User Name: ");
 					nUserName = sc.nextLine();
 					
+					//sets the user input to the field password
 					System.out.println("Now please enter a password: ");
 					nPassword = sc.nextLine();
 					
