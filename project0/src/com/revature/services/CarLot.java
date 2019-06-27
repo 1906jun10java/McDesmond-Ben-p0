@@ -38,8 +38,11 @@ public class CarLot {
 
 	//prints all cars in the lot
 	public static void printTheLot() {
+		int i = 1; 
 		for(Car c:carLot) {
+			System.out.print(i + " ");
 			System.out.println(c);
+			i++;
 		}
 	}
 	
