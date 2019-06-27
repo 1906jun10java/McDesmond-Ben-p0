@@ -1,6 +1,9 @@
 package com.revature.services;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
 import com.revature.beans.Car;
 
 public class CarLot {
@@ -41,10 +44,20 @@ public class CarLot {
 	}
 	
 	//
-	public static void viewOffers(Car car) {
-		int index = checkLotForCar(car);
+	public static void viewOffers() {
+		int currentOffers;
+		Set<Double> keys = new HashSet<>();
 		
-		carLot.get(index);
+		for(Car c:carLot) {
+			currentOffers = c.offers.size();
+			if(currentOffers > 0) {
+				keys = c.offers.keySet();
+				System.out.println(c);
+				for(double a : keys) {
+					System.out.println(a);
+				}
+			}
+		}
 	}
 	
 	public static Car returnCar(int index) {

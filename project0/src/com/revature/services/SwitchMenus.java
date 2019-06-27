@@ -65,6 +65,7 @@ public class SwitchMenus {
 					System.out.println("Now please enter a password: ");
 					nPassword = sc.nextLine();
 					
+					//credential checker to verify customer account creation was successful
 					cChecker = Login.addNewCustomer(nUserName, nPassword);
 					if(cChecker == true) {
 						System.out.println("Customer Successfully added to the database");
@@ -114,6 +115,7 @@ public class SwitchMenus {
 					
 					if(eAttempt == true) {
 						System.out.println("Login Successful");
+						EmployeeSwitch.employeeMenu();
 					}
 					else {
 						System.out.println("Error, invalid username or password");
