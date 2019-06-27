@@ -4,38 +4,34 @@ import java.util.Scanner;
 
 public class Utility {
 	
+	//creates an instance of the Scanner for use in this class
 	ScannerSingleton ss = ScannerSingleton.getInstance();
 	Scanner sc = ss.returnScanner();
-	
-	//clears the console
-	public static void cls() {
-		System.out.flush();
-	}
 	
 	//trys to parse a string into an int returns false if exception occurs
 	public static boolean tryParseInt(String userInput) {
 
 		try {
-			Integer.parseInt(userInput);
+			Integer.parseInt(userInput);		//attemtps to use the wrapper class to parse an int into a string
 			
 		}
-		catch(Exception e){
-			System.out.println("Input is not a number try again");
-			return false;
+		catch(Exception e){		//when the user input throws an exception
+			System.out.println("Input is not a number try again");		
+			return false;	//parse failed
 		}
-		return true;
+		return true;		//parse succeeded
 	}
 	
-	public int parsedInt() {
-		boolean test = false;
-		int result = -1;
-		while(test == false) {
-			String userInput = sc.nextLine();
-			test = Utility.tryParseInt(userInput);
-			if(test == true) {
-				result = Integer.parseInt(userInput);
+	public int parsedInt() {		//passes user input into the tryParseInt method loops until the user adds an int
+		boolean test = false;		//test variable
+		int result = -1;			//initialized with a non 0 number
+		while(test == false) {		//while the tryParseInt returns false(or on first run)
+			String userInput = sc.nextLine();		//takes the next line from the user
+			test = Utility.tryParseInt(userInput);	//runs my tryParseInt method
+			if(test == true) {						//if the parse test passes
+				result = Integer.parseInt(userInput);	//sets the parsed userInput into the value of the result
 			}
 		}
-		return result;
+		return result;		//returns the result of the tryParseInt function
 	}
 }

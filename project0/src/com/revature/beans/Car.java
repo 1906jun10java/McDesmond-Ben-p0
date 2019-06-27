@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 public class Car {
 	
+	//constructor for a new car object
 	public Car(String color, String make, String model, int year, int mileage) {
 		super();
 		this.color = color;
@@ -13,7 +14,7 @@ public class Car {
 		this.mileage = mileage;
 	}
 
-	public HashMap<Double,Customer> offers = new HashMap<>();
+	public HashMap<Double,Customer> offers = new HashMap<>();		//a hashmap that stores the offers on a car along with the customer info
 	
 	private String color;		//color of a car
 	private String make;		//car make
@@ -22,14 +23,6 @@ public class Car {
 	private int mileage;		//car mileage
 	private boolean isSold;		//boolean value to determine if car is sold
 	
-	
-	public boolean isSold() {
-		return isSold;
-	}
-
-	public void setSold(boolean isSold) {
-		this.isSold = isSold;
-	}
 
 	//getters and setters
 	public String getColor() {
@@ -66,6 +59,14 @@ public class Car {
 		this.mileage = mileage;
 	}
 	
+	public boolean isSold() {
+		return isSold;
+	}
+
+	public void setSold(boolean isSold) {
+		this.isSold = isSold;
+	}
+	
 	
 	//toString for printing the current car object
 	@Override
@@ -74,6 +75,7 @@ public class Car {
 				+ "]";
 	}
 	
+	//allows a customer to make an offer on the car
 	public void makeAnOffer(double offer,Customer c) {
 		offers.put(offer, c);
 	}

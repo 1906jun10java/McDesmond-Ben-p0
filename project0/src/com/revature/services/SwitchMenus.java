@@ -16,6 +16,7 @@ public class SwitchMenus {
 		//Adds a default admin user to the employee hashmap
 		ELogin.addAdmin();
 		
+		//adds a utility object to give access to non static classes
 		Utility ul = new Utility();
 		
 		//exits the main menu when turns true
@@ -76,48 +77,54 @@ public class SwitchMenus {
 					
 				break;
 
-			case 3:
-
-				String userName;
-				String password;
+			case 3://login as a returning customer
 				
-				boolean attempt;
-
+				String userName;		//stores a username
+				String password;		//stores a password
+				
+				boolean attempt;		//stores the test attempt
+				
+				//takes the next line from the console and stores it in the username field
 				System.out.println("Please enter UserName: ");
 				userName = sc.nextLine();
 				
+				//stores the next line from the console and stores it in the password field
 				System.out.println("Please enter Password");
 				password = sc.nextLine();
 				
+				//attemtps to login using the login method passing in a username and password
 				attempt = Login.loginAttempt(userName, password);
 				
-				if(attempt == true) {
+				if(attempt == true) {//attempt was returned as true
 					System.out.println("Success");
 				}
-				else {
+				else {//attempt was returned as false
 					System.out.println("Invalid login try again");
 				}
 				break;
 				
-			case 4:
-					String eUserName;
-					String ePassword;
+			case 4://allows an employee to log in
+					String eUserName;	//stores an employee username
+					String ePassword;	//stores an employee password
 					
-					boolean eAttempt;
+					boolean eAttempt;	//stores the attempt to log in
 					
+					//stores the next line from the console in the username field
 					System.out.println("Please enter UserName: ");
 					eUserName = sc.nextLine();
 					
+					//stores the next line in the password field
 					System.out.println("Please enter Password");
 					ePassword = sc.nextLine();
 					
+					//attempts to login using the loginAttempt method which returns a boolean true/false
 					eAttempt = ELogin.loginAttempt(eUserName, ePassword);
 					
-					if(eAttempt == true) {
+					if(eAttempt == true) {//if login was successful
 						System.out.println("Login Successful");
 						EmployeeSwitch.employeeMenu();
 					}
-					else {
+					else {//if login failed
 						System.out.println("Error, invalid username or password");
 					}
 					
