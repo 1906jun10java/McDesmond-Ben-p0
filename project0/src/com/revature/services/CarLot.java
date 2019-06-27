@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.revature.beans.Car;
+import com.revature.beans.Customer;
 
 public class CarLot {
 	
@@ -50,18 +51,31 @@ public class CarLot {
 	public static void viewOffers() {
 		int currentOffers;
 		Set<Double> keys = new HashSet<>();
+		int index = 1;
 		
 		for(Car c:carLot) {
 			currentOffers = c.offers.size();
 			if(currentOffers > 0) {
 				keys = c.offers.keySet();
-				System.out.println(c);
+				System.out.println(index +") " + c);
 				for(double a : keys) {
 					System.out.println(a);
 				}
 			}
+		index++;
 		}
 	}
+
+	
+	public static void acceptAnOffer(int carIndex,double key) {
+		
+		Car c = carLot.get(carIndex - 1);
+		Customer cu = c.offers.get(key);
+		c.setSold(true);
+		carLot.remove(c);
+		System.out.println("Offer Accepted, car is removed from the lot!");
+	}
+	
 	
 	public static Car returnCar(int index) {
 		Car c = carLot.get(index);
