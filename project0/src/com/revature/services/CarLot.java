@@ -16,7 +16,7 @@ public class CarLot {
 	}
 	
 	//removes a car from the lot
-	public void removeCar(Car car) {
+	public static void removeCar(Car car) {
 		carLot.remove(car);
 		return;
 	}
@@ -35,7 +35,9 @@ public class CarLot {
 
 	//prints all cars in the lot
 	public static void printTheLot() {
-		System.out.println(carLot.toString());
+		for(Car c:carLot) {
+			System.out.println(c);
+		}
 	}
 	
 	//
@@ -43,5 +45,10 @@ public class CarLot {
 		int index = checkLotForCar(car);
 		
 		carLot.get(index);
+	}
+	
+	public static Car returnCar(int index) {
+		Car c = carLot.get(index);
+		return c;
 	}
 }

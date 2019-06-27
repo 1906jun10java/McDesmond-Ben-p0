@@ -1,9 +1,5 @@
+package com.revature.services;
 import java.util.Scanner;
-
-import com.revature.services.CarLot;
-import com.revature.services.Login;
-import com.revature.services.ScannerSingleton;
-import com.revature.services.Utility;
 
 public class EmployeeSwitch {
 
