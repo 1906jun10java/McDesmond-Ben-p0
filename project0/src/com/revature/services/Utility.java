@@ -1,12 +1,16 @@
 package com.revature.services;
 
 import java.util.Scanner;
+import org.apache.log4j.*;
 
 public class Utility {
 	
 	//creates an instance of the Scanner for use in this class
 	ScannerSingleton ss = ScannerSingleton.getInstance();
 	Scanner sc = ss.returnScanner();
+	
+	//creates a static reference to the logger
+	private static Logger log = Logger.getRootLogger();
 	
 	//trys to parse a string into an int returns false if exception occurs
 	public static boolean tryParseInt(String userInput) {
@@ -16,7 +20,8 @@ public class Utility {
 			
 		}
 		catch(Exception e){		//when the user input throws an exception
-			System.out.println("Input is not a number try again");		
+			System.out.println("Input is not a number try again");	
+			log.error("attempt to enter a non integer" + e.getStackTrace());
 			return false;	//parse failed
 		}
 		return true;		//parse succeeded
@@ -44,6 +49,7 @@ public class Utility {
 			}
 		}
 		System.out.println("Error: names must be free of white space!");
+		log.warn("Attempt to enter a string with a null or whitespace character");
 		return false;							//bad name
 	}
 	
@@ -69,7 +75,8 @@ public class Utility {
 				
 			}
 			catch(Exception e){		//when the user input throws an exception
-				System.out.println("Input is not a number try again");		
+				System.out.println("Input is not a number try again");
+				log.error("Attempt to enter a non double into a parse function " + e.getStackTrace());
 				return false;	//parse failed
 			}
 			return true;		//parse succeeded
