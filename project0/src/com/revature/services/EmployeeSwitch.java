@@ -76,7 +76,7 @@ public class EmployeeSwitch {
 				System.out.println("Select a car's id number from the lot");
 				CarLot.printTheLot();				//prints the car lot 
 				int cId = ul.parsedInt();			//asks the user for an int and parses it
-				Car car = CarLot.returnCar(cId);	//takes the parsed id and returns a car object
+				Car car = CarLot.returnCar(--cId);	//takes the parsed id and returns a car object
 				CarLot.removeCar(car);				//takes the returned car 
 				System.out.println("Car successfully removed");
 				break;

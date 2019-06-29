@@ -2,7 +2,6 @@ package com.revature.services;
 
 import com.revature.beans.*;
 import java.util.HashMap;
-import java.util.Scanner;
 
 public class Login {
 

@@ -12,7 +12,6 @@ public class Main {
 		//returns a reference to the singleton class ScannerSingleton
 		ScannerSingleton ss = ScannerSingleton.getInstance();
 		
-		
 		//returns a reference to the static scanner in the ScannerSingleton class
 		Scanner sc = ss.returnScanner();
 		

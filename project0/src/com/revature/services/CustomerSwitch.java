@@ -50,7 +50,7 @@ public class CustomerSwitch {
 				System.out.println("How much would you offer for this car?");	
 				offer = ul.parsedDouble();			//takes a dollar amount from the user to be used as an offer
 				car.offers.put(offer, customer);	//stores the customers offer in the car's offer hashmap 
-				CarLot.carLot.set(--index, car);	//returns the modified car to the carLot
+				CarLot.carLot.set(index, car);	//returns the modified car to the carLot
 				System.out.println("Offer successfully added! Please wait for an employee to approve your offer!");
 				break;
 				 
