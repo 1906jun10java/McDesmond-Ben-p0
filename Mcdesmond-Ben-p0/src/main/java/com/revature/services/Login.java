@@ -1,6 +1,8 @@
 package com.revature.services;
 
 import com.revature.beans.*;
+import com.sun.tools.sjavac.Log;
+
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -22,29 +24,28 @@ public class Login {
 		Customer c = customerLogin.get(userName);	//uses the username as a key to retrieve the customer credentials
 		if (c.getPassword().equals(password)) {		//compares the passed password to the password in the customers password field
 			System.out.println("Login Successful");		//passwords matched
+			Log.info("User " + userName +"successfully logged in!"); 			//Stacktrace message confirming login of user
 			return true;								//passwords matched
 		}
 
 		System.out.println("Invalid password try again");	//passwords did not match
+		Log.warn("Invalid password entered for user " + userName);			//invalid password was attempted for the username
 		return false;										//passwords did not match
 	}
 
-	public static boolean addNewCustomer(String userName, String password, String firstName, String lastName) {	//takes a username and password and uses it to create a new customer
+	public static boolean addNewCustomer(String userName, String password) {	//takes a username and password and uses it to create a new customer
 
 		if (userName != null) {		//if username is not null
 			if(password != null) {	//if password is not null
-				Customer c = new Customer(userName, password,firstName,lastName);	//constructs a new customer with the given username and password
+				Customer c = new Customer(userName, password);	//constructs a new customer with the given username and password
 				customerLogin.put(c.getUserName(), c);			//puts the new customer in the customerLogin hashmap  using the username as a key
 				return true;									//successful operation
 			}
 		}
 		
-		System.out.println("All required fields must be populated");	//a passed field was null
+		System.out.println("Username and Password cannot be null!");	//a passed field was null
 		return false;			//returns false
 
 	}
 
-	public static Customer returnCustomer(String userName) {
-		return customerLogin.get(userName);
-	}
 }

@@ -9,7 +9,7 @@ public class ELogin {
 	
 	//adds a default employee 
 	public static void addAdmin() {
-		addNewEmployee("admin","admin","admin","admin");
+		addNewEmployee("admin","admin");
 	}
 	
 	// prompts the employee to login validating their input
@@ -34,22 +34,18 @@ public class ELogin {
 	}
 
 	//adds a new employee to the employeeLogin hashmap
-	public static boolean addNewEmployee(String userName, String password, String firstName, String lastName) {
+	public static boolean addNewEmployee(String userName, String password) {
 
 		if (userName != null) {	//makes sure username is not null
 			if(password != null) {	//makes sure password is not null
-				if(firstName != null) {
-					if(lastName != null) {
-						Employee c = new Employee(userName, password, firstName,lastName);		//adds the username and password to a new employee object
-						employeeLogin.put(c.getUserName(), c);									//puts the new employee object and username key into the hashmap
-						return true;															//success
-					}
-				}
+				Employee c = new Employee(userName, password);		//adds the username and password to a new employee object
+				employeeLogin.put(c.getUserName(), c);				//puts the new employee object and username key into the hashmap
+				return true;										//success
 			}
 		}
 		
-		System.out.println("All required fields must be populated!");
-		return false;	//A field was null
+		System.out.println("Username and Password cannot be null!");
+		return false;	//username or password were null
 
 	}
 }

@@ -70,6 +70,7 @@ public class EmployeeSwitch {
 				CarLot.viewOffers();	//prints all offers on every car in the lot
 
 
+
 				break;
 
 			case 3://remove car from the lot 

@@ -1,11 +1,17 @@
 package com.revature.services;
 
-import com.revature.beans.Customer;
+import java.util.Scanner;
 
 public class SwitchMenus {
 
 	// holds the main menu prompts and switches based on user input
 	public static void mainMenu() {
+
+		//returns a reference to the static ScannerSingleton class
+		ScannerSingleton ss = ScannerSingleton.getInstance();
+		
+		//returns a reference to the static scanner in ScannerSingleton
+		Scanner sc = ss.returnScanner();
 		
 		//Adds a default admin user to the employee hashmap
 		ELogin.addAdmin();
@@ -13,7 +19,7 @@ public class SwitchMenus {
 		//adds a utility object to give access to non static classes
 		Utility ul = new Utility();
 		
-		//exits the main menu when it turns true
+		//exits the main menu when turns true
 		boolean exitMain = false; 
 
 		//the switch case variable
@@ -21,6 +27,9 @@ public class SwitchMenus {
 
 		//while boolean exitMain is not true
 		while (exitMain != true) {
+			
+			//used to test user input for a string parse
+			boolean testInt = false;
 			
 			//Prints out the main menu
 			System.out.println("Welcome to the car lot! How can we help you today?");
@@ -31,7 +40,7 @@ public class SwitchMenus {
 			System.out.println("0) Exit the car lot");
 			System.out.println("Please select an option: ");
 			
-			//returns a number from the user to switch on
+			//while the user input is not a number
 			switchCase = ul.parsedInt();
 			
 			//declares a switch on the user input parsed above
@@ -45,28 +54,20 @@ public class SwitchMenus {
 			case 2://customer wishes to make an account with the company 
 					String nUserName;	//stores a username
 					String nPassword;	//stores a password
-					String nFirstName;	//stores a first name
-					String nLastName;	//stores a last name
 					
 					boolean cChecker;	//checks the result of the login
 					
 					//sets the username to the value of the next line of user input
 					System.out.println("We're glad to have you as a customer");
 					System.out.println("Please enter your desired User Name: ");
-					nUserName = ul.returnCheckedName();
+					nUserName = sc.nextLine();
 					
 					//sets the user input to the field password
 					System.out.println("Now please enter a password: ");
-					nPassword = ul.returnCheckedName();
-					
-					System.out.println("Please enter your first name");
-					nFirstName = ul.returnCheckedName();
-					
-					System.out.println("Finally please enter your last name");
-					nLastName = ul.returnCheckedName();
+					nPassword = sc.nextLine();
 					
 					//credential checker to verify customer account creation was successful
-					cChecker = Login.addNewCustomer(nUserName, nPassword, nFirstName, nLastName);
+					cChecker = Login.addNewCustomer(nUserName, nPassword);
 					if(cChecker == true) {
 						System.out.println("Customer Successfully added to the database");
 					}
@@ -85,19 +86,17 @@ public class SwitchMenus {
 				
 				//takes the next line from the console and stores it in the username field
 				System.out.println("Please enter UserName: ");
-				userName = ul.returnCheckedName();
+				userName = sc.nextLine();
 				
 				//stores the next line from the console and stores it in the password field
 				System.out.println("Please enter Password");
-				password = ul.returnCheckedName();
+				password = sc.nextLine();
 				
-				//Attempts to login using the login method passing in a username and password
+				//attemtps to login using the login method passing in a username and password
 				attempt = Login.loginAttempt(userName, password);
 				
 				if(attempt == true) {//attempt was returned as true
 					System.out.println("Success");
-					Customer customer = Login.returnCustomer(userName);
-					CustomerSwitch.customerMenu(customer);
 				}
 				else {//attempt was returned as false
 					System.out.println("Invalid login try again");
@@ -112,11 +111,11 @@ public class SwitchMenus {
 					
 					//stores the next line from the console in the username field
 					System.out.println("Please enter UserName: ");
-					eUserName = ul.returnCheckedName();
+					eUserName = sc.nextLine();
 					
 					//stores the next line in the password field
 					System.out.println("Please enter Password");
-					ePassword = ul.returnCheckedName();
+					ePassword = sc.nextLine();
 					
 					//attempts to login using the loginAttempt method which returns a boolean true/false
 					eAttempt = ELogin.loginAttempt(eUserName, ePassword);
@@ -130,13 +129,9 @@ public class SwitchMenus {
 					}
 					
 					break;
-					
-			case 0:
-				exitMain = true;
-				break;
 
 			default:
-				System.out.println("Invalid Selection, please try again.");
+				exitMain = true;
 				break;
 
 			}

@@ -21,7 +21,7 @@ public class CarLot {
 	
 	//removes a car from the lot
 	public static void removeCar(Car car) {
-		carLot.remove(car);						//removes the current car object from the car lot arrayList
+		carLot.remove(car);						//removes the current car object from the carlot arrayList
 		return;
 	}
 	
@@ -39,7 +39,7 @@ public class CarLot {
 
 	//prints all cars in the lot
 	public static void printTheLot() {
-		int i = 1; 							//sets index to 1 for user convenience 
+		int i = 1; 							//sets index to 1 for user convienence 
 		for(Car c:carLot) {					//for every car in the car lot
 			System.out.print(i + ") ");		//print the index of the current car
 			System.out.println(c);			//print the toString of the current car
@@ -69,11 +69,9 @@ public class CarLot {
 	//takes the selected index for the car on the lot and the offer key and accepts the current offer
 	public static void acceptAnOffer(int carIndex,double key) {
 		
-		Car c = carLot.get(carIndex - 1);		//uses the passed index minus one for user convenience to access a car on the carLot
+		Car c = carLot.get(carIndex - 1);		//uses the passed index minus one for user convienence to access a car on the carLot
 		Customer cu = c.offers.get(key);		//uses the offer key to access the customer who made that offer
 		c.setSold(true);						//sets the isSold field of that car to true
-		cu.setRemainingBalance(key);			//sets the offer made by the customer to the remaining balance on their account
-		cu.ownACar(c);							//adds that car's info to the customers array list of owned cars
 		carLot.remove(c);						//removes the current car item from the lot
 		System.out.println("Offer Accepted, car is removed from the lot!");
 	}

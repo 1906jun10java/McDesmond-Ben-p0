@@ -1,5 +1,6 @@
 package com.revature.beans;
 
+import java.util.ArrayList;
 
 public class Customer extends UserBean{
 
@@ -11,6 +12,7 @@ public class Customer extends UserBean{
 		
 	}
 	private double remainingBalance;
+	private ArrayList<Car> ownedCars = new ArrayList<Car>();		//an array list for storing all the cars on the lot
 	
 	@Override
 	public String toString() {
@@ -19,4 +21,19 @@ public class Customer extends UserBean{
 				+ hashCode() + ", toString()=" + super.toString() + "]";
 	}
 
+	public double getRemainingBalance() {
+		return remainingBalance;
+	}
+
+	public void setRemainingBalance(double remainingBalance) {
+		this.remainingBalance = remainingBalance;
+	}
+	
+	public void ownACar(Car c) {
+		ownedCars.add(c);
+	}
+	
+	public ArrayList<Car> returnOwnedCars() {
+		return ownedCars;
+	}
 }
