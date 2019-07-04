@@ -8,7 +8,7 @@ public class SwitchMenus {
 	public static void mainMenu() {
 		
 		//Adds a default admin user to the employee hashmap
-		ELogin.addAdmin();
+		//ELogin.addAdmin();
 		
 		//adds a utility object to give access to non static classes
 		Utility ul = new Utility();

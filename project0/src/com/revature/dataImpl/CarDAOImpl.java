@@ -39,7 +39,6 @@ public class CarDAOImpl implements CarDAO {
 		while(rs.next()) {
 			c = new Car(rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6));
 			c.setCarId(rs.getInt(1));
-			c.setSold(rs.getString(7));
 			CarLot.addCarObject(c);
 		}
 	}

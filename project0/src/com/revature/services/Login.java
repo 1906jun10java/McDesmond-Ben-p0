@@ -1,6 +1,8 @@
 package com.revature.services;
 
 import com.revature.beans.*;
+import com.revature.dataImpl.SQLUtility;
+
 import java.util.HashMap;
 
 public class Login {
@@ -34,6 +36,7 @@ public class Login {
 			if(password != null) {	//if password is not null
 				Customer c = new Customer(userName, password,firstName,lastName);	//constructs a new customer with the given username and password
 				customerLogin.put(c.getUserName(), c);			//puts the new customer in the customerLogin hashmap  using the username as a key
+				SQLUtility.tryCreateNewCustomer(c); 			//adds the customer to the database for future retrieval
 				return true;									//successful operation
 			}
 		}
