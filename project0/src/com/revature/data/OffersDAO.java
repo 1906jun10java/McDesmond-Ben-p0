@@ -2,12 +2,11 @@ package com.revature.data;
 
 import java.sql.SQLException;
 
-import com.revature.beans.Car;
-import com.revature.beans.Customer;
+import com.revature.beans.OfferBean;
 
 
 public interface OffersDAO {
-	public void createNewOffer(double offer,Customer customer,Car car)
+	public void createNewOffer(OfferBean o)
 	throws SQLException;
 	
 	public void returnOffers()

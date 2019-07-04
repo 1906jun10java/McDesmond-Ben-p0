@@ -8,9 +8,8 @@ public class OfferBean {
 	private int carId;
 	private double offerAmount;
 	
-	public OfferBean(int offerId,int carId, double offerAmount, String customerUserName) {
+	public OfferBean(int carId, double offerAmount, String customerUserName) {
 		super();
-		this.offerId = offerId;
 		this.customerUserName = customerUserName;
 		this.carId = carId;
 		this.offerAmount = offerAmount;

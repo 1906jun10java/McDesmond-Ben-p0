@@ -2,7 +2,6 @@ package com.revature.services;
 
 import com.revature.beans.Car;
 import com.revature.beans.Customer;
-import com.revature.dataImpl.SQLUtility;
 
 public class CustomerSwitch {
 	

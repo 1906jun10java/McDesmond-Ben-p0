@@ -68,7 +68,7 @@ public class EmployeeSwitch {
 			case 2://prints offers and allows employee to accept or reject an offer
 				
 				System.out.println("Current number of offers on a car");
-				CarLot.viewOffers();	//prints all offers on every car in the lot
+				Offers.printOffers();
 
 
 				break;

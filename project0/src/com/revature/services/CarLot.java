@@ -1,8 +1,6 @@
 package com.revature.services;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
 import com.revature.beans.Car;
 import com.revature.beans.Customer;
@@ -52,25 +50,6 @@ public class CarLot {
 			System.out.print(i + ") ");		//print the index of the current car
 			System.out.println(c);			//print the toString of the current car
 			i++;							//adds one to the index so the cars have unique identifiers that represent their index on the lot
-		}
-	}
-	
-	//prints all cars on the lot, then allows an employee to view all offers on a specific car  
-	public static void viewOffers() {
-		int currentOffers;						//holds the number of offers in the cars offer array
-		Set<Double> keys = new HashSet<>();		//holds a set of all the keys in a cars offers hashmap
-		int index = 1;							//creates an index for each car on the lot so the user can request a specific one
-		
-		for(Car c:carLot) {						//for every car on the lot
-			currentOffers = c.offers.size();	//sets the number of offers on the current car to currentOffers
-			if(currentOffers > 0) {				//if there is an offer on this car
-				keys = c.offers.keySet();		//pull the offer from the hashmap on that car
-				System.out.println(index +") " + c);		//prints the index and info of the car
-				for(double a : keys) {			//for every offer in the offers hashmap
-					System.out.println(a);		//print every offer
-				}
-			}
-		index++;		//adds one to the index
 		}
 	}
 

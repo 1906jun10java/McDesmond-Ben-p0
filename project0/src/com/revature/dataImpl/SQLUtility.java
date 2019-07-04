@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import com.revature.beans.Car;
 import com.revature.beans.Customer;
 import com.revature.beans.Employee;
+import com.revature.beans.OfferBean;
 
 public class SQLUtility {
 
@@ -83,9 +84,9 @@ public class SQLUtility {
 		}
 	}
 	
-	public static void tryCreateNewOffer(double offer, Customer customer, Car car) {
+	public static void tryCreateNewOffer(OfferBean o) {
 		try {
-			odi.createNewOffer(offer, customer, car);
+			odi.createNewOffer(o);
 		} catch (SQLException e) {
 			log.fatal("SQL exception thrown when adding offer to database"+ e.getStackTrace());
 			e.printStackTrace();

@@ -16,3 +16,4 @@
 2019-07-04 15:54:07 FATAL root:45 - SQL exception thrown when adding a customer to database[Ljava.lang.StackTraceElement;@2d901eb0
 2019-07-04 15:56:26 FATAL root:45 - SQL exception thrown when adding a customer to database[Ljava.lang.StackTraceElement;@16eb3ea3
 2019-07-04 15:57:00 FATAL root:45 - SQL exception thrown when adding a customer to database[Ljava.lang.StackTraceElement;@5f049ea1
+2019-07-04 18:18:43 FATAL root:90 - SQL exception thrown when adding offer to database[Ljava.lang.StackTraceElement;@2767e23c
