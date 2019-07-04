@@ -5,6 +5,8 @@ import java.util.ArrayList;
 public class Customer extends UserBean{
 
 
+	private int CustomerId;
+
 
 
 	public Customer(String userName, String password, String firstName, String lastName) {
@@ -14,13 +16,14 @@ public class Customer extends UserBean{
 	private double remainingBalance;
 	private ArrayList<Car> ownedCars = new ArrayList<Car>();		//an array list for storing all the cars on the lot
 	
-	@Override
-	public String toString() {
-		return "Customer [getUserName()=" + getUserName() + ", getPassword()=" + getPassword() + ", getFirstName()="
-				+ getFirstName() + ", getLastName()=" + getLastName() + ", getClass()=" + getClass() + ", hashCode()="
-				+ hashCode() + ", toString()=" + super.toString() + "]";
+
+	public int getCustomerId() {
+		return CustomerId;
 	}
 
+	public void setCustomerId(int customerId) {
+		CustomerId = customerId;
+	}
 	public double getRemainingBalance() {
 		return remainingBalance;
 	}
@@ -36,4 +39,12 @@ public class Customer extends UserBean{
 	public ArrayList<Car> returnOwnedCars() {
 		return ownedCars;
 	}
+
+	@Override
+	public String toString() {
+		return "Customer [CustomerId=" + CustomerId + ", getUserName()=" + getUserName() + ", getPassword()="
+				+ getPassword() + ", getFirstName()=" + getFirstName() + ", getLastName()=" + getLastName() + "]";
+	}
+	
+	
 }

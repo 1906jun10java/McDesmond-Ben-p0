@@ -52,4 +52,11 @@ public class ELogin {
 		return false;	//A field was null
 
 	}
+	
+	//adds a new employee to the hashmap from sql
+	public static void populateEmployeeLogin(Employee e) {
+		String uName = e.getUserName();
+		employeeLogin.put(uName, e);
+		return;
+	}
 }

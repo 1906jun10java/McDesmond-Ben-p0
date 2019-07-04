@@ -16,15 +16,24 @@ public class Car {
 
 	public HashMap<Double,Customer> offers = new HashMap<>();		//a hashmap that stores the offers on a car along with the customer info
 	
+	private int carId;			//unique identifier given by sql
 	private String color;		//color of a car
 	private String make;		//car make
 	private String model;		//car model
 	private int year;			//car year
 	private int mileage;		//car mileage
-	private boolean isSold;		//boolean value to determine if car is sold
+	private String isSold;		//value to determine if car is sold
 	
 
 	//getters and setters
+	public int getCarId() {
+		return carId;
+	}
+	
+	public void setCarId(int carId) {
+		this.carId = carId;
+	}
+	
 	public String getColor() {
 		return color;
 	}
@@ -59,22 +68,21 @@ public class Car {
 		this.mileage = mileage;
 	}
 	
-	public boolean isSold() {
+	public String isSold() {
 		return isSold;
 	}
 
-	public void setSold(boolean isSold) {
+	public void setSold(String isSold) {
 		this.isSold = isSold;
 	}
 	
 	
-	//toString for printing the current car object
 	@Override
 	public String toString() {
-		return "Car [color=" + color + ", make=" + make + ", model=" + model + ", year=" + year + ", mileage=" + mileage
-				+ "]";
+		return "Car [carId=" + carId + ", color=" + color + ", make=" + make + ", model=" + model + ", year=" + year
+				+ ", mileage=" + mileage + "]";
 	}
-	
+
 	//allows a customer to make an offer on the car
 	public void makeAnOffer(double offer,Customer c) {
 		offers.put(offer, c);

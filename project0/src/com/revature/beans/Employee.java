@@ -2,16 +2,30 @@ package com.revature.beans;
 
 public class Employee extends UserBean {
 
+	private int EmployeeId;
+	
+	
 	public Employee(String userName, String password, String firstName, String lastName) {
 		super(userName, password, firstName, lastName);
 
 	}
 
+	//Getters and Setters
+	public int getEmployeeId() {
+		return EmployeeId;
+	}
+
+
+	public void setEmployeeId(int employeeId) {
+		EmployeeId = employeeId;
+	}
+
 	@Override
 	public String toString() {
-		return "Employee [getUserName()=" + getUserName() + ", getPassword()=" + getPassword() + ", getFirstName()="
-				+ getFirstName() + ", getLastName()=" + getLastName() + ", getClass()=" + getClass() + ", hashCode()="
-				+ hashCode() + ", toString()=" + super.toString() + "]";
+		return "Employee [EmployeeId=" + EmployeeId + ", getUserName()=" + getUserName() + ", getPassword()="
+				+ getPassword() + ", getFirstName()=" + getFirstName() + ", getLastName()=" + getLastName() + "]";
 	}
+
+
 
 }

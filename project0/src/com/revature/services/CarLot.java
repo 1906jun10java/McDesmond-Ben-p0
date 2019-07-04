@@ -19,6 +19,12 @@ public class CarLot {
 		return;
 	}
 	
+	//adds a car object to the carLot
+	public static void addCarObject(Car c) {
+		carLot.add(c);		//adds a car object to the carLot
+		return;
+	}
+	
 	//removes a car from the lot
 	public static void removeCar(Car car) {
 		carLot.remove(car);						//removes the current car object from the car lot arrayList
@@ -71,7 +77,7 @@ public class CarLot {
 		
 		Car c = carLot.get(carIndex - 1);		//uses the passed index minus one for user convenience to access a car on the carLot
 		Customer cu = c.offers.get(key);		//uses the offer key to access the customer who made that offer
-		c.setSold(true);						//sets the isSold field of that car to true
+		c.setSold("true");						//sets the isSold field of that car to true
 		cu.setRemainingBalance(key);			//sets the offer made by the customer to the remaining balance on their account
 		cu.ownACar(c);							//adds that car's info to the customers array list of owned cars
 		carLot.remove(c);						//removes the current car item from the lot
