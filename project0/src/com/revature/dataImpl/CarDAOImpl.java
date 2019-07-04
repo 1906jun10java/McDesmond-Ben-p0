@@ -19,15 +19,15 @@ public class CarDAOImpl implements CarDAO {
 	public void addNewCarSQL(Car c) throws SQLException {
 		
 		Connection conn = cf.getConnection();
-		String sql = "INSERT INTO CAR VALUES(SQ_CAR_PK.NEXTVAL,?,?,?,?,?,?)";
+		String sql = "INSERT INTO CAR VALUES(SQ_CAR_PK.NEXTVAL,?,?,?,?,?)";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setString(1,c.getColor());
 		ps.setString(2, c.getMake());
 		ps.setString(3, c.getModel());
 		ps.setInt(4, c.getYear());
 		ps.setInt(5, c.getMileage());
-		ps.setString(6, "false");
 		ps.executeUpdate();
+		System.out.println("submitted to sql");
 	}
 
 	@Override

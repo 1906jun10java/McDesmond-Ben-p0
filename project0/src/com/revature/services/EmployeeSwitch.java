@@ -57,8 +57,7 @@ public class EmployeeSwitch {
 				mileage = ul.parsedInt();
 				
 				//constructs a new car and stores it in the CarLot
-				Car c = new Car(color,make,model,year,mileage);
-				CarLot.carLot.add(c);
+				CarLot.addCar(color, make, model, year, mileage);
 				
 				//car was added 
 				System.out.println("Car successfully added");

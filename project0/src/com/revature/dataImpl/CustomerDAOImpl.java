@@ -19,7 +19,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	@Override
 	public void createNewCustomer(Customer c) throws SQLException {
 		Connection conn = cf.getConnection();
-		String sql = "INSERT INTO CAR VALUES(SQ_CAR_CUSTOMER_PK.NEXTVAL,?,?,?,?,?,?)";
+		String sql = "INSERT INTO CAR_Customer VALUES(SQ_CAR_CUSTOMER_PK.NEXTVAL,?,?,?,?)";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setString(1,c.getUserName());
 		ps.setString(2, c.getPassword());

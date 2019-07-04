@@ -9,3 +9,10 @@
 2019-06-29 17:50:07 ERROR root:24 - attempt to enter a non integer[Ljava.lang.StackTraceElement;@4f933fd1
 2019-06-29 18:19:37 ERROR root:24 - attempt to enter a non integer[Ljava.lang.StackTraceElement;@4f933fd1
 2019-07-04 15:09:29 FATAL root:72 - SQL exception thrown when populating car list from database[Ljava.lang.StackTraceElement;@fba92d3
+2019-07-04 15:43:05 FATAL root:45 - SQL exception thrown when adding a customer to database[Ljava.lang.StackTraceElement;@68c9133c
+2019-07-04 15:46:31 FATAL root:45 - SQL exception thrown when adding a customer to database[Ljava.lang.StackTraceElement;@16eb3ea3
+2019-07-04 15:48:40 FATAL root:45 - SQL exception thrown when adding a customer to database[Ljava.lang.StackTraceElement;@2d901eb0
+2019-07-04 15:53:24 FATAL root:45 - SQL exception thrown when adding a customer to database[Ljava.lang.StackTraceElement;@5afa3c9
+2019-07-04 15:54:07 FATAL root:45 - SQL exception thrown when adding a customer to database[Ljava.lang.StackTraceElement;@2d901eb0
+2019-07-04 15:56:26 FATAL root:45 - SQL exception thrown when adding a customer to database[Ljava.lang.StackTraceElement;@16eb3ea3
+2019-07-04 15:57:00 FATAL root:45 - SQL exception thrown when adding a customer to database[Ljava.lang.StackTraceElement;@5f049ea1
