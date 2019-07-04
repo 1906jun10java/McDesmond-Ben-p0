@@ -11,4 +11,7 @@ public interface CarDAO {
 	public void populateCarLotSQL()
 	throws SQLException;  
 	
+	public void removeCarFromLotSQL(Car c)
+	throws SQLException;
+	
 }

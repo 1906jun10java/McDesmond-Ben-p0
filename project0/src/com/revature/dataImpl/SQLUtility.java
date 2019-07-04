@@ -17,7 +17,7 @@ public class SQLUtility {
 	static EmployeeDAOImpl edi = new EmployeeDAOImpl();
 	static CustomerDAOImpl cdi = new CustomerDAOImpl();
 	static CarDAOImpl cardi = new CarDAOImpl(); 
-	
+	static OffersDAOImpl odi = new OffersDAOImpl();
 	
 	public static void tryCreateNewEmployeeSQL(Employee e) {
 		
@@ -70,6 +70,33 @@ public class SQLUtility {
 			cardi.populateCarLotSQL();
 		} catch (SQLException e) {
 			log.fatal("SQL exception thrown when populating car list from database"+ e.getStackTrace());
+			e.printStackTrace();
+		}
+	}
+	
+	public static void tryRemoveCarFromLotSQL(Car c) {
+		try {
+			cardi.removeCarFromLotSQL(c);
+		} catch (SQLException e) {
+			log.fatal("SQL exception thrown when removing car from database"+ e.getStackTrace());
+			e.printStackTrace();
+		}
+	}
+	
+	public static void tryCreateNewOffer(double offer, Customer customer, Car car) {
+		try {
+			odi.createNewOffer(offer, customer, car);
+		} catch (SQLException e) {
+			log.fatal("SQL exception thrown when adding offer to database"+ e.getStackTrace());
+			e.printStackTrace();
+		}
+	}
+	
+	public static void tryPopulateOfferMap() {
+		try {
+			odi.returnOffers();
+		} catch (SQLException e) {
+			log.fatal("SQL exception thrown when populating offer map from database"+ e.getStackTrace());
 			e.printStackTrace();
 		}
 	}

@@ -50,6 +50,7 @@ public class Login {
 		return customerLogin.get(userName);
 	}
 	
+	
 	//Takes a customer from sql and adds them to the hashmap
 	public static void populateCustomerLogin(Customer c) {
 		String uName = c.getUserName();

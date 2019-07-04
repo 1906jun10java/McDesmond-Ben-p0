@@ -27,7 +27,6 @@ public class CarDAOImpl implements CarDAO {
 		ps.setInt(4, c.getYear());
 		ps.setInt(5, c.getMileage());
 		ps.executeUpdate();
-		System.out.println("submitted to sql");
 	}
 
 	@Override
@@ -41,5 +40,16 @@ public class CarDAOImpl implements CarDAO {
 			c.setCarId(rs.getInt(1));
 			CarLot.addCarObject(c);
 		}
+	}
+
+	@Override
+	public void removeCarFromLotSQL(Car c) throws SQLException {
+		Connection conn = cf.getConnection();
+		String sql = "DELETE FROM CAR WHERE CAR_ID = ? AND MILEAGE = ?";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setInt(1, c.getCarId());
+		ps.setInt(2,c.getMileage());
+		ps.executeUpdate();
+		
 	}
 }

@@ -2,6 +2,7 @@ package com.revature.services;
 
 import com.revature.beans.Car;
 import com.revature.beans.Customer;
+import com.revature.dataImpl.SQLUtility;
 
 public class CustomerSwitch {
 	
@@ -19,7 +20,7 @@ public class CustomerSwitch {
 		while(exitMenu != true) {
 			
 			//prints out customer menu
-			System.out.println("Welcome valued customer, How can we help you today?");
+			System.out.println("Welcome valued customer "+customer.getFirstName()+" , How can we help you today?");
 			System.out.println("1) View cars on the lot");
 			System.out.println("2) Make an offer on a car");
 			System.out.println("3) View your new car");
@@ -38,25 +39,13 @@ public class CustomerSwitch {
 				
 			case 2://Make an offer on a car
 				
-				int index = 0;				//holds the index value of the car in the carLot
-				double offer = 0;			//holds the customers offer before it is stored
-				Car car;					//stores the car that is being modified
+				Offers.createNewOffer(customer);
 					
-				CarLot.printTheLot();		//prints every car on the lot
-				System.out.println("Please enter the number for the car you are interested in today?");
-				index = ul.parsedInt();		//returns the index of the car + 1(for user readability purposes)
-				car = CarLot.returnCar(--index);	//returns a car from the car lot 
-				System.out.println(car);			//prints the car for bug checking purposes and user assurance
-				System.out.println("How much would you offer for this car?");	
-				offer = ul.parsedDouble();			//takes a dollar amount from the user to be used as an offer
-				car.offers.put(offer, customer);	//stores the customers offer in the car's offer hashmap 
-				CarLot.carLot.set(index, car);	//returns the modified car to the carLot
-				System.out.println("Offer successfully added! Please wait for an employee to approve your offer!");
 				break;
 				 
 				 
 			case 3://view your new car
-				if( null == customer.returnOwnedCars()) {
+				if(customer.returnOwnedCars().equals(null)) {
 					System.out.println("Sorry, but there are no cars here currently. Hopefully your offer is still pending and will be approved soon.");
 					break;
 				}

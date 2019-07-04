@@ -120,7 +120,7 @@ public class SwitchMenus {
 					
 					if(eAttempt == true) {//if login was successful
 						System.out.println("Login Successful");
-						EmployeeSwitch.employeeMenu();
+						EmployeeSwitch.employeeMenu(eUserName);
 					}
 					else {//if login failed
 						System.out.println("Error, invalid username or password");

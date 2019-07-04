@@ -2,11 +2,12 @@ package com.revature.services;
 import java.util.Scanner;
 
 import com.revature.beans.Car;
+import com.revature.dataImpl.SQLUtility;
 
 public class EmployeeSwitch {
 
 	
-	public static void employeeMenu() {
+	public static void employeeMenu(String eUsername) {
 		
 		//creates an instance of the static scanner in the menu
 		ScannerSingleton ss = ScannerSingleton.getInstance();
@@ -25,11 +26,12 @@ public class EmployeeSwitch {
 			int switchCase;		//the switch int for the main menu
 
 			//main menu prompts
-			System.out.println("Welcome Employee! How can we help you today?");
+			System.out.println("Welcome "+eUsername+ " How can we help you today?");
 			System.out.println("1) Add a Car to Lot");
 			System.out.println("2) View Customer Offers");
 			System.out.println("3) Remove Car from Lot");
 			System.out.println("4) View All Payments");
+			System.out.println("0) Exit Employee Menu");
 			switchCase = ul.parsedInt();		//requests user input in the form of an int and checks it
 
 			//switch block for the main menu
@@ -77,6 +79,7 @@ public class EmployeeSwitch {
 				int cId = ul.parsedInt();			//asks the user for an int and parses it
 				Car car = CarLot.returnCar(--cId);	//takes the parsed id and returns a car object
 				CarLot.removeCar(car);				//takes the returned car 
+				SQLUtility.tryRemoveCarFromLotSQL(car);
 				System.out.println("Car successfully removed");
 				break;
 
@@ -84,9 +87,13 @@ public class EmployeeSwitch {
 
 				//CarLot.viewPayments();
 				break;
+				
+			case 0:
+				exitMain = true;
+				break;
 
 			default:
-				exitMain = true;
+				System.out.println("Invalid selection try again!");
 				break;
 
 			}
