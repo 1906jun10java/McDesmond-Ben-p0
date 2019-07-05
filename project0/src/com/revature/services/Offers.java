@@ -55,4 +55,22 @@ public class Offers {
 			 index++;
 		 }
 	}
+	
+	public static void selectOffer() {
+		
+		double offer;
+		System.out.println("Select an offer or enter 0 to reject all offers");
+		offer = ul.parsedDouble();
+		if(offers.containsKey(offer)) {
+			
+		}
+		if(offer == 0) {
+			
+		}
+		else {
+			
+		}
+		return;
+		
+	}
 }
