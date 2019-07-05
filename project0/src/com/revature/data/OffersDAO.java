@@ -12,7 +12,7 @@ public interface OffersDAO {
 	public void returnOffers()
 	throws SQLException;
 	
-	public void deleteOffers(Double offer)
+	public void deleteOffers(OfferBean o)
 	throws SQLException;
 
 }

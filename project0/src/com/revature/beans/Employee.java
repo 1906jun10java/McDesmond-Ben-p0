@@ -2,7 +2,7 @@ package com.revature.beans;
 
 public class Employee extends UserBean {
 
-	private int EmployeeId;
+	private int EmployeeId;			//holds the sql value employee id
 	
 	
 	public Employee(String userName, String password, String firstName, String lastName) {

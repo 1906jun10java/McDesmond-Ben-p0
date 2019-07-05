@@ -14,7 +14,7 @@ import com.revature.services.Offers;
 public class OffersDAOImpl implements OffersDAO {
 
 	public static ConnFactory cf = ConnFactory.getInstance();
-	
+
 	@Override
 	public void createNewOffer(OfferBean o) throws SQLException {
 		Connection conn = cf.getConnection();
@@ -27,13 +27,13 @@ public class OffersDAOImpl implements OffersDAO {
 	}
 
 	@Override
-	public  void returnOffers() throws SQLException {
+	public void returnOffers() throws SQLException {
 		Connection conn = cf.getConnection();
 		Statement stmt = conn.createStatement();
-		ResultSet rs  = stmt.executeQuery("SELECT * FROM OFFERS");
+		ResultSet rs = stmt.executeQuery("SELECT * FROM OFFERS");
 		OfferBean o = null;
-		while(rs.next()) {
-			o = new OfferBean(rs.getInt(2),rs.getInt(3),rs.getString(4));
+		while (rs.next()) {
+			o = new OfferBean(rs.getInt(2), rs.getInt(3), rs.getString(4));
 			o.setOfferId(rs.getInt(1));
 			Offers.populateOfferMap(o);
 		}
@@ -44,9 +44,9 @@ public class OffersDAOImpl implements OffersDAO {
 		Connection conn = cf.getConnection();
 		String sql = "DELETE FROM OFFERS WHERE CAR_ID = ? AND OFFER = ?";
 		PreparedStatement ps = conn.prepareStatement(sql);
-		ps.setInt(1,o.getCarId());
+		ps.setInt(1, o.getCarId());
 		ps.setDouble(2, o.getOfferAmount());
-
+		ps.executeUpdate();
 	}
 
 }

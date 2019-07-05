@@ -3,8 +3,8 @@ package com.revature.beans;
 public class OfferBean {
 	
 
-	private int offerId;
-	private String customerUserName;
+	private int offerId;					//holds sql's id number for the offer
+	private String customerUserName;		//holds a customers username
 	private int carId;
 	private double offerAmount;
 	

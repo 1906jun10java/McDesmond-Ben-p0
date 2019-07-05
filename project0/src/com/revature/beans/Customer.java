@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Customer extends UserBean{
 
 
-	private int CustomerId;
+	private int CustomerId;		//stores sql's id for the customer
 
 
 
@@ -17,6 +17,7 @@ public class Customer extends UserBean{
 	private ArrayList<Car> ownedCars = new ArrayList<Car>();		//an array list for storing all the cars on the lot
 	
 
+	//Getters and Setters
 	public int getCustomerId() {
 		return CustomerId;
 	}
