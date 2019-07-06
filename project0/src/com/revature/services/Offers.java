@@ -51,7 +51,9 @@ public class Offers {
 
 		 keys = offers.keySet();
 		 for(double offer : keys) {
-			 System.out.println(index + ") " +offer);
+			 OfferBean o = offers.get(offer);
+			 Car c = CarLot.returnCar(o.getCarId());
+			 System.out.println(index + ") " +offer+": "+c);
 			 index++;
 		 }
 	}

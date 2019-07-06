@@ -1,7 +1,5 @@
 package com.revature.beans;
 
-import java.util.HashMap;
-
 public class Car {
 	
 	//constructor for a new car object
@@ -14,9 +12,8 @@ public class Car {
 		this.mileage = mileage;
 	}
 
-	public HashMap<Double,Customer> offers = new HashMap<>();		//a hashmap that stores the offers on a car along with the customer info
 	
-	private int carId;			//unique identifier given by sql
+	private Integer carId;			//unique identifier given by sql
 	private String color;		//color of a car
 	private String make;		//car make
 	private String model;		//car model
@@ -26,7 +23,7 @@ public class Car {
 	
 
 	//getters and setters
-	public int getCarId() {
+	public Integer getCarId() {
 		return carId;
 	}
 	
@@ -81,11 +78,5 @@ public class Car {
 	public String toString() {
 		return "Car [carId=" + carId + ", color=" + color + ", make=" + make + ", model=" + model + ", year=" + year
 				+ ", mileage=" + mileage + "]";
-	}
-
-	//allows a customer to make an offer on the car
-	public void makeAnOffer(double offer,Customer c) {
-		offers.put(offer, c);
-	}
-	
+	}	
 }

@@ -1,16 +1,18 @@
 package com.revature.services;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import com.revature.beans.Car;
-import com.revature.beans.Customer;
 import com.revature.dataImpl.SQLUtility;
 
 public class CarLot {
 	
 	static ArrayList<Car> carLot = new ArrayList<Car>();		//an array list for storing all the cars on the lot
 	
-	
+	public static void sortListByCarID() {
+		Collections.sort(carLot,(arg0,arg1)->{return arg0.getCarId().compareTo(arg1.getCarId());});
+	}
 	//adds a car to the lot
 	public static void addCar(String color, String make ,String model, int year, int mileage) {
 		Car c = new Car(color,make,model,year,mileage);			//uses the car constructor to populate the fields of the new car object
@@ -51,18 +53,6 @@ public class CarLot {
 			System.out.println(c);			//print the toString of the current car
 			i++;							//adds one to the index so the cars have unique identifiers that represent their index on the lot
 		}
-	}
-
-	//takes the selected index for the car on the lot and the offer key and accepts the current offer
-	public static void acceptAnOffer(int carIndex,double key) {
-		
-		Car c = carLot.get(carIndex - 1);		//uses the passed index minus one for user convenience to access a car on the carLot
-		Customer cu = c.offers.get(key);		//uses the offer key to access the customer who made that offer
-		c.setSold("true");						//sets the isSold field of that car to true
-		cu.setRemainingBalance(key);			//sets the offer made by the customer to the remaining balance on their account
-		cu.ownACar(c);							//adds that car's info to the customers array list of owned cars
-		carLot.remove(c);						//removes the current car item from the lot
-		System.out.println("Offer Accepted, car is removed from the lot!");
 	}
 	
 	//uses the index of the car to return the current instance of the car

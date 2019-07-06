@@ -101,4 +101,13 @@ public class SQLUtility {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void tryPurgeLowOffers(OfferBean o) {
+		try {
+			odi.deleteOffers(o);
+		} catch (SQLException e) {
+			log.fatal("SQL exception thrown when purging low offers from database"+ e.getStackTrace());
+			e.printStackTrace();
+		}
+	}
 }

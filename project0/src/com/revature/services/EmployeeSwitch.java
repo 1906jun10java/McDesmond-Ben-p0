@@ -69,7 +69,7 @@ public class EmployeeSwitch {
 				
 				System.out.println("Current number of offers on a car");
 				Offers.printOffers();
-
+				
 
 				break;
 

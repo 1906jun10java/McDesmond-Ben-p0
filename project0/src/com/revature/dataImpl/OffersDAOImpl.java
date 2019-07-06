@@ -42,11 +42,9 @@ public class OffersDAOImpl implements OffersDAO {
 	@Override
 	public void deleteOffers(OfferBean o) throws SQLException {
 		Connection conn = cf.getConnection();
-		String sql = "DELETE FROM OFFERS WHERE CAR_ID = ? AND OFFER = ?";
+		String sql = "DELETE FROM OFFERS WHERE CAR_ID = ?";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setInt(1, o.getCarId());
-		ps.setDouble(2, o.getOfferAmount());
 		ps.executeUpdate();
 	}
-
 }
