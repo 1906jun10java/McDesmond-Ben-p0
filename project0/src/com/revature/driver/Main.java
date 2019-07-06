@@ -17,11 +17,17 @@ public class Main {
 		Scanner sc = ss.returnScanner();
 		
 		SQLUtility.tryPopulateCarLotSQL();		//attempts a sql connection to populate the car lot
+
 		SQLUtility.tryReturnCustomersSQL();		//attempts a sql connection to populate the customers hashmap
+
 		SQLUtility.tryReturnEmployeesSQL();		//attempts a sql connection to populate the employees hashmap
+
 		SQLUtility.tryPopulateOfferMap(); 		//attempts a sql connection to populate the offers hashmap
+
 		SQLUtility.tryPopulateSoldCarsSQL();	//populates sold car hashmap
+
 		SQLUtility.tryPopulatePaymentsSQL(); 	//populates payment map
+
 		SQLUtility.tryReturnTransactionLedgerSQL(); 	//populates the transactionLedger
 		
 		

@@ -23,7 +23,6 @@ public class PaymentMap {
 		
 		new PaymentBean(p.getCarId(),p.getCustomerUsername(), p.getMonthlyPayment() ,p.getRemainingBalance());
 		paymentAccount.put(p.getCustomerUsername(), p);
-		SQLUtility.tryAddNewAccount(p);
 		return;
 	}
 	
