@@ -67,9 +67,9 @@ public class EmployeeSwitch {
 
 			case 2://prints offers and allows employee to accept or reject an offer
 				
-				System.out.println("Current number of offers on a car");
-				Offers.printOffers();
 				
+				Offers.printOffers();
+				Offers.selectOffer();
 
 				break;
 

@@ -27,6 +27,11 @@ public class Offers {
 		System.out.println("Please enter the number for the car you are interested in today?");
 		index = ul.parsedInt(); // returns the index of the car + 1(for user readability purposes)
 		car = CarLot.returnCar(--index); // returns a car from the car lot
+		
+		if(car == null) {
+			return;
+		}
+		
 		System.out.println(car); // prints the car for bug checking purposes and user assurance
 		System.out.println("How much would you offer for this car?");
 		offer = ul.parsedDouble(); // takes a dollar amount from the user to be used as an offer
@@ -48,11 +53,12 @@ public class Offers {
 	public static void printOffers() {
 		Set<Double> keys = new HashSet<>(); // holds a set of all the keys in a cars offers hashmap
 		int index = 1; // creates an index for each car on the lot so the user can request a specific one
-
+		
+		System.out.println("Current number of offers on a car");
 		 keys = offers.keySet();
 		 for(double offer : keys) {
 			 OfferBean o = offers.get(offer);
-			 Car c = CarLot.returnCar(o.getCarId());
+			 Car c = CarLot.returnCarByCarId((o.getCarId()));
 			 System.out.println(index + ") " +offer+": "+c);
 			 index++;
 		 }
@@ -61,16 +67,25 @@ public class Offers {
 	public static void selectOffer() {
 		
 		double offer;
-		System.out.println("Select an offer or enter 0 to reject all offers");
+		
+		
+		System.out.println("Select an offer by entering the dollar amount");
 		offer = ul.parsedDouble();
+		
 		if(offers.containsKey(offer)) {
-			
+			OfferBean o = offers.get(offer);
+			PaymentMap.createNewPaymentAccount(o);
+			Car c = CarLot.returnCarByCarId(o.getCarId());
+			SoldCars.addCarObject(c);
+			CarLot.removeCar(c);
+			SQLUtility.tryAddNewSoldCarSQL(c);
+			SQLUtility.tryPurgeLowOffers(o);
+			SQLUtility.tryRemoveCarFromLotSQL(c);
+			System.out.println("Offer selected!");
 		}
-		if(offer == 0) {
-			
-		}
+		
 		else {
-			
+			System.out.println("No offers selected!");
 		}
 		return;
 		

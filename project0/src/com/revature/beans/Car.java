@@ -19,7 +19,6 @@ public class Car {
 	private String model;		//car model
 	private int year;			//car year
 	private int mileage;		//car mileage
-	private String isSold;		//value to determine if car is sold
 	
 
 	//getters and setters
@@ -63,14 +62,6 @@ public class Car {
 	}
 	public void setMileage(int mileage) {
 		this.mileage = mileage;
-	}
-	
-	public String isSold() {
-		return isSold;
-	}
-
-	public void setSold(String isSold) {
-		this.isSold = isSold;
 	}
 	
 	

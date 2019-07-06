@@ -17,3 +17,8 @@
 2019-07-04 15:56:26 FATAL root:45 - SQL exception thrown when adding a customer to database[Ljava.lang.StackTraceElement;@16eb3ea3
 2019-07-04 15:57:00 FATAL root:45 - SQL exception thrown when adding a customer to database[Ljava.lang.StackTraceElement;@5f049ea1
 2019-07-04 18:18:43 FATAL root:90 - SQL exception thrown when adding offer to database[Ljava.lang.StackTraceElement;@2767e23c
+2019-07-06 11:07:01 FATAL root:119 - SQL exception thrown when adding sold car to database[Ljava.lang.StackTraceElement;@5b218417
+2019-07-06 11:08:18 ERROR root:79 - Attempt to enter a non double into a parse function [Ljava.lang.StackTraceElement;@fa49800
+2019-07-06 11:09:45 FATAL root:119 - SQL exception thrown when adding sold car to database[Ljava.lang.StackTraceElement;@6fa51cd4
+2019-07-06 11:50:09 FATAL root:85 - SQL exception thrown when removing car from database[Ljava.lang.StackTraceElement;@7c137fd5
+2019-07-06 12:01:31 FATAL root:139 - SQL exception thrown when adding payment account to database[Ljava.lang.StackTraceElement;@2767e23c

@@ -2,18 +2,15 @@ package com.revature.data;
 
 import java.sql.SQLException;
 
+import com.revature.beans.PaymentBean;
+
 
 public interface PaymentDAO {
-	public void createNewPurchase(double offer,int customerID,int carID)
-	throws SQLException;
 	
-	public double returnMonthlyPayment(int transactionID)
-	throws SQLException;
+	public void addNewAccountSQL(PaymentBean p) 
+			throws SQLException;
 	
-	public double returnTotalBalance(int transactionID)
-	throws SQLException;
-	
-	public void clearPaidCar(int transactionID)
-	throws SQLException;
+	public void populatePaymentsSQL() 
+			throws SQLException;
 
 }

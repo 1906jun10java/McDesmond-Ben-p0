@@ -1,7 +1,7 @@
 package com.revature.services;
 
-import com.revature.beans.Car;
 import com.revature.beans.Customer;
+import com.revature.beans.PaymentBean;
 
 public class CustomerSwitch {
 	
@@ -44,13 +44,12 @@ public class CustomerSwitch {
 				 
 				 
 			case 3://view your new car
-				if(customer.returnOwnedCars().equals(null)) {
+				PaymentBean pb = PaymentMap.returnAccount(customer.getUserName());
+				if(pb == null) {
 					System.out.println("Sorry, but there are no cars here currently. Hopefully your offer is still pending and will be approved soon.");
 					break;
 				}
-				for(Car c: customer.returnOwnedCars()) {
-					System.out.println(c);
-				}
+				SoldCars.printSoldCars(pb.getCarId());
 				break;
 			case 4:
 				

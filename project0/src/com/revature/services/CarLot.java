@@ -1,7 +1,6 @@
 package com.revature.services;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 import com.revature.beans.Car;
 import com.revature.dataImpl.SQLUtility;
@@ -10,9 +9,6 @@ public class CarLot {
 	
 	static ArrayList<Car> carLot = new ArrayList<Car>();		//an array list for storing all the cars on the lot
 	
-	public static void sortListByCarID() {
-		Collections.sort(carLot,(arg0,arg1)->{return arg0.getCarId().compareTo(arg1.getCarId());});
-	}
 	//adds a car to the lot
 	public static void addCar(String color, String make ,String model, int year, int mileage) {
 		Car c = new Car(color,make,model,year,mileage);			//uses the car constructor to populate the fields of the new car object
@@ -33,17 +29,7 @@ public class CarLot {
 		return;
 	}
 	
-	//checks the lot for a car and returns the index of the car in the car lot
-	public static int checkLotForCar(Car car) {
-		
-		int index = 0;							//initializes an index to 0
-		
-		if(carLot.contains(car)) {				//if the lot contains the passed in car object
-			index = carLot.lastIndexOf(car);	//returns the index of the first car that matches that object 
-		}
-		
-		return index;							//returns that cars index
-	}
+
 
 	//prints all cars in the lot
 	public static void printTheLot() {
@@ -57,7 +43,23 @@ public class CarLot {
 	
 	//uses the index of the car to return the current instance of the car
 	public static Car returnCar(int index) {
+		if(index > carLot.size() || index < 0) {
+			System.out.println("No selection made, going back now!");
+			return null;
+		}
 		Car c = carLot.get(index);		//uses the index to return a specific car from the lot using the index of the array list
 		return c;						//returns that car to the calling function
+	}
+	
+	//checks the lot for a car that has a matching carId
+	public static Car returnCarByCarId(int carId) {
+		
+		for(Car c: carLot) {					//for each car on the lot
+			if(c.getCarId() == carId) {			//if the carId matches 
+				return c;						//return that car
+			}
+		}
+		System.out.println("Error car not found!");	
+		return null; 							//otherwise return null
 	}
 }
