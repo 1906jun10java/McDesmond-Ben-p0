@@ -22,6 +22,8 @@ public class Main {
 		SQLUtility.tryPopulateOfferMap(); 		//attempts a sql connection to populate the offers hashmap
 		SQLUtility.tryPopulateSoldCarsSQL();	//populates sold car hashmap
 		SQLUtility.tryPopulatePaymentsSQL(); 	//populates payment map
+		SQLUtility.tryReturnTransactionLedgerSQL(); 	//populates the transactionLedger
+		
 		
 		//opens the programs main menu
 		SwitchMenus.mainMenu();

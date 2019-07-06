@@ -92,7 +92,6 @@ public class SwitchMenus {
 				attempt = Login.loginAttempt(userName, password);
 				
 				if(attempt == true) {//attempt was returned as true
-					System.out.println("Success");
 					Customer customer = Login.returnCustomer(userName);
 					CustomerSwitch.customerMenu(customer);
 				}

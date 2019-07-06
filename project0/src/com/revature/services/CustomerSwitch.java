@@ -2,6 +2,7 @@ package com.revature.services;
 
 import com.revature.beans.Customer;
 import com.revature.beans.PaymentBean;
+import com.revature.dataImpl.SQLUtility;
 
 public class CustomerSwitch {
 	
@@ -51,40 +52,29 @@ public class CustomerSwitch {
 				}
 				SoldCars.printSoldCars(pb.getCarId());
 				break;
-			case 4:
+			
+			case 4://make a payment on the car
 				
-				int selector = 0;
-				boolean smallLoop = false;
-				double owed = customer.getRemainingBalance();
-				
-				System.out.println("Your current balance on your car is " + owed);
+				PaymentBean payBean = PaymentMap.returnAccount(customer.getUserName());
+				System.out.println(customer.getFirstName()+" your montly payment owed is: "+payBean.getMonthlyPayment());
 				System.out.println("Would you like to make a payment?");
-				System.out.println("1) Yes");
-				System.out.println("2) No ");
-				selector = ul.parsedInt();
-				while(smallLoop != true) {
-					switch(selector) {
-					case 1:
-						
-						double payment = 0;
-						double remainingBalance = 0;
-						
-						System.out.println( "Your current monthly payment is "+ (owed/ 36));
-						System.out.println("Please enter the dollar amount you wish to pay");
-						payment = ul.parsedDouble();
-						remainingBalance = owed-payment;
-						customer.setRemainingBalance(remainingBalance);
-						System.out.println("Payment Successful!");
-					case 2:
-						System.out.println("exiting payment menu");
-						smallLoop = true;
-						break;
-					
-					default:
-						System.out.println("Invalid choice, try again!");
-						break;
-					}
+				System.out.println("To make a payment press 1");
+				int selection = ul.parsedInt();
+				if(selection == 1) {
+					 payBean.setRemainingBalance(payBean.getRemainingBalance() - payBean.getMonthlyPayment());
+					 SQLUtility.tryRemoveFromPayment(payBean);
+					 SQLUtility.tryAddNewAccount(payBean);
+					 SQLUtility.tryCreateNewTransactionSQL(payBean);
+					 TransactionLedger.populateLedger(payBean);
+					 System.out.println("Payment received");
+					 System.out.println("Only $"+ payBean.getRemainingBalance() +" left!");
 				}
+				else {
+					System.out.println("No payment occured!");
+				}
+				System.out.println("Returning to menu");
+				break;
+				
 			case 0:
 				System.out.println("Logging out");
 				exitMenu = true;

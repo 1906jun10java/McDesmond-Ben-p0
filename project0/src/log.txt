@@ -22,3 +22,7 @@
 2019-07-06 11:09:45 FATAL root:119 - SQL exception thrown when adding sold car to database[Ljava.lang.StackTraceElement;@6fa51cd4
 2019-07-06 11:50:09 FATAL root:85 - SQL exception thrown when removing car from database[Ljava.lang.StackTraceElement;@7c137fd5
 2019-07-06 12:01:31 FATAL root:139 - SQL exception thrown when adding payment account to database[Ljava.lang.StackTraceElement;@2767e23c
+2019-07-06 13:45:26 FATAL root:130 - SQL exception thrown when populating sold cars from database[Ljava.lang.StackTraceElement;@7133da86
+2019-07-06 13:56:07 ERROR root:24 - attempt to enter a non integer[Ljava.lang.StackTraceElement;@1a75e76a
+2019-07-06 14:54:59 FATAL root:167 - SQL exception thrown when adding a transaction to the database[Ljava.lang.StackTraceElement;@7d9d0818
+2019-07-06 15:10:41 ERROR root:24 - attempt to enter a non integer[Ljava.lang.StackTraceElement;@73eb439a

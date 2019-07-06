@@ -53,7 +53,7 @@ public class PaymentBean {
 	//toString
 	@Override
 	public String toString() {
-		return "PaymentBean [accountId=" + accountId + ", carId=" + carId + ", customerUsername=" + customerUsername
+		return "Transaction [accountId=" + accountId + ", carId=" + carId + ", customerUsername=" + customerUsername
 				+ ", monthlyPayment=" + monthlyPayment + ", remainingBalance=" + remainingBalance + "]";
 	}
 	

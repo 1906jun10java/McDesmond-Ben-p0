@@ -15,12 +15,12 @@ public class SoldCars {
 		return;
 	}
 	
+	//prints a car from the sold lot based on its sql id number
 	public static void printSoldCars(int carId) {
 		
-		for(Car c :soldCars) {
-			System.out.println(c);
-			if(c.getCarId() == carId) {
-				System.out.println(c);
+		for(Car c :soldCars) {			//for every sold car in the list
+			if(c.getCarId() == carId) {		//if the car id's match
+				System.out.println(c);		//print the car
 			}
 			return;
 		}

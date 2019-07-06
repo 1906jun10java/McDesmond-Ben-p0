@@ -13,4 +13,6 @@ public interface PaymentDAO {
 	public void populatePaymentsSQL() 
 			throws SQLException;
 
+	public void removeFromPayment(PaymentBean pb) 
+			throws SQLException;
 }

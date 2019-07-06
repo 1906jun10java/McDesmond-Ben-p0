@@ -22,6 +22,7 @@ public class SQLUtility {
 	static OffersDAOImpl odi = new OffersDAOImpl();
 	static PaymentDAOImpl pdi = new PaymentDAOImpl();
 	static SoldCarsDAOImpl scdi = new SoldCarsDAOImpl();
+	static TransactionLedgerDAOImpl tldi = new TransactionLedgerDAOImpl();
 	
 	public static void tryCreateNewEmployeeSQL(Employee e) {
 		
@@ -149,4 +150,32 @@ public class SQLUtility {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void tryRemoveFromPayment(PaymentBean pb) {
+		try {
+			pdi.removeFromPayment(pb);
+		} catch (SQLException e) {
+			log.fatal("SQL exception thrown when purging old Accounts from database"+ e.getStackTrace());
+			e.printStackTrace();
+		}
+	}
+	
+	public static void tryCreateNewTransactionSQL(PaymentBean pb) {
+		try {
+			tldi.createNewTranactionSQL(pb);
+		} catch (SQLException e) {
+			log.fatal("SQL exception thrown when adding a transaction to the database"+ e.getStackTrace());
+			e.printStackTrace();
+		}
+	}
+	
+	public static void tryReturnTransactionLedgerSQL() {
+		try {
+			tldi.returnTransactionLedgerSQL();
+		} catch (SQLException e) {
+			log.fatal("SQL exception thrown when populating transaction database"+ e.getStackTrace());
+			e.printStackTrace();
+		}
+	}
+	
 }

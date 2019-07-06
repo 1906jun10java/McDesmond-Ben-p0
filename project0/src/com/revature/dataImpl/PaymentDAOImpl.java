@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
 import com.revature.beans.PaymentBean;
 import com.revature.data.ConnFactory;
 import com.revature.data.PaymentDAO;
@@ -41,6 +40,15 @@ public class PaymentDAOImpl implements PaymentDAO {
 			p.setAccountId(rs.getInt(1));
 			PaymentMap.createNewPaymentAccount(p);
 		}
+	}
+	@Override
+	public void removeFromPayment(PaymentBean pb) throws SQLException {
+		Connection conn = cf.getConnection();
+		String sql = "DELETE FROM Payment WHERE ACCOUNT_ID = ?";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setInt(1, pb.getAccountId());
+		ps.executeUpdate();
+		
 	}
 
 }

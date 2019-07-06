@@ -83,9 +83,9 @@ public class EmployeeSwitch {
 				System.out.println("Car successfully removed");
 				break;
 
-			case 4:
+			case 4://prints all transactions that have occurred
 
-				//CarLot.viewPayments();
+				TransactionLedger.viewTransactionLedger();
 				break;
 				
 			case 0:
