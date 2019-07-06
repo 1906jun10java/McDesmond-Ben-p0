@@ -37,5 +37,12 @@ public class PaymentMap {
 		PaymentBean pb = paymentAccount.get(userName);
 		return pb;
 	}
+	
+	public static boolean doesAccountExist(String key) {
+		if(!paymentAccount.containsKey(key)) {
+			return false;
+		}
+		return true;
+	}
 
 }

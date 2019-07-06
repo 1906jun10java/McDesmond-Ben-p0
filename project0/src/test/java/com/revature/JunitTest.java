@@ -1,7 +1,5 @@
 package test.java.com.revature;
 
-
-
 import static org.junit.Assert.assertFalse;
 
 import org.junit.Rule;

@@ -45,11 +45,12 @@ public class CustomerSwitch {
 				 
 				 
 			case 3://view your new car
-				PaymentBean pb = PaymentMap.returnAccount(customer.getUserName());
-				if(pb == null) {
+				
+				if(!PaymentMap.doesAccountExist(customer.getUserName())) {
 					System.out.println("Sorry, but there are no cars here currently. Hopefully your offer is still pending and will be approved soon.");
 					break;
 				}
+				PaymentBean pb = PaymentMap.returnAccount(customer.getUserName());
 				SoldCars.printSoldCars(pb.getCarId());
 				break;
 			

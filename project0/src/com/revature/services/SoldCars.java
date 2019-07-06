@@ -17,7 +17,6 @@ public class SoldCars {
 	
 	//prints a car from the sold lot based on its sql id number
 	public static void printSoldCars(int carId) {
-		
 		for(Car c :soldCars) {			//for every sold car in the list
 			if(c.getCarId() == carId) {		//if the car id's match
 				System.out.println(c);		//print the car
