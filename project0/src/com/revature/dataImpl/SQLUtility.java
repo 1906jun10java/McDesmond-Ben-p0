@@ -24,6 +24,7 @@ public class SQLUtility {
 	static SoldCarsDAOImpl scdi = new SoldCarsDAOImpl();
 	static TransactionLedgerDAOImpl tldi = new TransactionLedgerDAOImpl();
 	
+	//tries to create a new employee on the database
 	public static void tryCreateNewEmployeeSQL(Employee e) {
 		
 		try {
@@ -34,6 +35,7 @@ public class SQLUtility {
 		}
 	}
 	
+	//tries to return all employees from the database
 	public static void tryReturnEmployeesSQL() {
 		try {
 			edi.returnEmployeesSQL();
@@ -43,6 +45,7 @@ public class SQLUtility {
 		}
 	}
 
+	//tries to create the customer on the database
 	public static void tryCreateNewCustomer(Customer c) {
 		try {
 			cdi.createNewCustomer(c);
@@ -52,6 +55,7 @@ public class SQLUtility {
 		}
 	}
 	
+	//tries to return a customer from the database
 	public static void tryReturnCustomersSQL() {
 		try {
 			cdi.returnCustomersSQL();
@@ -61,6 +65,7 @@ public class SQLUtility {
 		}
 	}
 	
+	//tries to add a new car to the database
 	public static void tryAddNewCarSQL(Car c) {
 		try {
 			cardi.addNewCarSQL(c);
@@ -70,6 +75,7 @@ public class SQLUtility {
 		}
 	}
 	
+	//tries to populate the car lot from the database
 	public static void tryPopulateCarLotSQL() {
 		try {
 			cardi.populateCarLotSQL();
@@ -79,6 +85,7 @@ public class SQLUtility {
 		}
 	}
 	
+	//tries to remove a car from the database
 	public static void tryRemoveCarFromLotSQL(Car c) {
 		try {
 			cardi.removeCarFromLotSQL(c);
@@ -88,6 +95,7 @@ public class SQLUtility {
 		}
 	}
 	
+	//tries to create a new offer on the database
 	public static void tryCreateNewOffer(OfferBean o) {
 		try {
 			odi.createNewOffer(o);
@@ -97,6 +105,7 @@ public class SQLUtility {
 		}
 	}
 	
+	//tries to populate the offer map data structure
 	public static void tryPopulateOfferMap() {
 		try {
 			odi.returnOffers();
@@ -106,6 +115,7 @@ public class SQLUtility {
 		}
 	}
 	
+	//tries to purge low offers from the database
 	public static void tryPurgeLowOffers(OfferBean o) {
 		try {
 			odi.deleteOffers(o);
@@ -115,6 +125,7 @@ public class SQLUtility {
 		}
 	}
 	
+	//tries to add a new car sold to a table in the database
 	public static void tryAddNewSoldCarSQL(Car c) {
 		try {
 			scdi.addNewCarSQL(c);
@@ -124,6 +135,7 @@ public class SQLUtility {
 		}
 	}
 	
+	//tries to populate the sold car data structure from the database
 	public static void tryPopulateSoldCarsSQL() {
 		try {
 			scdi.populateSoldCarsSQL();
@@ -133,6 +145,7 @@ public class SQLUtility {
 		}
 	}
 	
+	//tries to add a new account to the database
 	public static void tryAddNewAccount(PaymentBean p){
 		try {
 			pdi.addNewAccountSQL(p);
@@ -142,6 +155,7 @@ public class SQLUtility {
 		}
 	}
 	
+	//tries to populate the payment data structure from the database
 	public static void tryPopulatePaymentsSQL() {
 		try {
 			pdi.populatePaymentsSQL();
@@ -151,6 +165,7 @@ public class SQLUtility {
 		}
 	}
 	
+	//tries to remove a payment from the database
 	public static void tryRemoveFromPayment(PaymentBean pb) {
 		try {
 			pdi.removeFromPayment(pb);
@@ -160,6 +175,7 @@ public class SQLUtility {
 		}
 	}
 	
+	//tries to create a new transaction on the database
 	public static void tryCreateNewTransactionSQL(PaymentBean pb) {
 		try {
 			tldi.createNewTranactionSQL(pb);
@@ -169,6 +185,7 @@ public class SQLUtility {
 		}
 	}
 	
+	//tries to return all transactions from the database
 	public static void tryReturnTransactionLedgerSQL() {
 		try {
 			tldi.returnTransactionLedgerSQL();

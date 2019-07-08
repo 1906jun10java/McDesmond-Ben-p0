@@ -64,9 +64,11 @@ public class Offers {
 		 }
 	}
 	
+	
+	//selects an offer and reflects that selection in the database
 	public static void selectOffer() {
 		
-		double offer;
+		double offer;		//holds an offer entered by a user
 		
 		
 		System.out.println("Select an offer by entering the dollar amount");

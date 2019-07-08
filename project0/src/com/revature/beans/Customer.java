@@ -1,21 +1,16 @@
 package com.revature.beans;
 
-import java.util.ArrayList;
-
 public class Customer extends UserBean{
 
 
 	private int CustomerId;		//stores sql's id for the customer
 
 
-
+	//constructor
 	public Customer(String userName, String password, String firstName, String lastName) {
 		super(userName, password, firstName, lastName);
 		
 	}
-	private double remainingBalance;
-	private ArrayList<Car> ownedCars = new ArrayList<Car>();		//an array list for storing all the cars on the lot
-	
 
 	//Getters and Setters
 	public int getCustomerId() {
@@ -25,21 +20,7 @@ public class Customer extends UserBean{
 	public void setCustomerId(int customerId) {
 		CustomerId = customerId;
 	}
-	public double getRemainingBalance() {
-		return remainingBalance;
-	}
 
-	public void setRemainingBalance(double remainingBalance) {
-		this.remainingBalance = remainingBalance;
-	}
-	
-	public void ownACar(Car c) {
-		ownedCars.add(c);
-	}
-	
-	public ArrayList<Car> returnOwnedCars() {
-		return ownedCars;
-	}
 
 	@Override
 	public String toString() {

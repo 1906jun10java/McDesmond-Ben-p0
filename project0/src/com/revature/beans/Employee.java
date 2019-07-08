@@ -5,6 +5,7 @@ public class Employee extends UserBean {
 	private int EmployeeId;			//holds the sql value employee id
 	
 	
+	//constructor
 	public Employee(String userName, String password, String firstName, String lastName) {
 		super(userName, password, firstName, lastName);
 

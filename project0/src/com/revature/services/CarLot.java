@@ -13,7 +13,7 @@ public class CarLot {
 	public static void addCar(String color, String make ,String model, int year, int mileage) {
 		Car c = new Car(color,make,model,year,mileage);			//uses the car constructor to populate the fields of the new car object
 		carLot.add(c);											//adds the newly constructed car to the lot
-		SQLUtility.tryAddNewCarSQL(c); 							//adds the newly constructed car to the sql database
+		SQLUtility.tryAddNewCarSQL(c); 							//adds the newly constructed car to the database
 		return;
 	}
 	

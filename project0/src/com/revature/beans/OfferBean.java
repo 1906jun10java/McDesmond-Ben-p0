@@ -5,9 +5,11 @@ public class OfferBean {
 
 	private int offerId;					//holds sql's id number for the offer
 	private String customerUserName;		//holds a customers username
-	private int carId;
-	private double offerAmount;
+	private int carId;						//holds sql's id for the car
+	private double offerAmount;				//holds an offer amount for a car
 	
+	
+	//constructor
 	public OfferBean(int carId, double offerAmount, String customerUserName) {
 		super();
 		this.customerUserName = customerUserName;
@@ -15,7 +17,7 @@ public class OfferBean {
 		this.offerAmount = offerAmount;
 	}
 	
-	
+	//getters and setters
 	public int getOfferId() {
 		return offerId;
 	}
@@ -40,6 +42,8 @@ public class OfferBean {
 	public void setOfferAmount(double offerAmount) {
 		this.offerAmount = offerAmount;
 	}
+	
+	//toString override
 	@Override
 	public String toString() {
 		return "OfferBean [offerId=" + offerId + ", customerUserName=" + customerUserName + ", carId=" + carId + ", offerAmount="
