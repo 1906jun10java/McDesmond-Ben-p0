@@ -45,28 +45,31 @@ public class CustomerSwitch {
 				 
 				 
 			case 3://view your new car
-				
+				//if the payment map does not contain the current customer returns this message
 				if(!PaymentMap.doesAccountExist(customer.getUserName())) {
 					System.out.println("Sorry, but there are no cars here currently. Hopefully your offer is still pending and will be approved soon.");
 					break;
 				}
+				//otherwise prints the sold car that matches the carId attatched to the customer
 				PaymentBean pb = PaymentMap.returnAccount(customer.getUserName());
 				SoldCars.printSoldCars(pb.getCarId());
 				break;
 			
 			case 4://make a payment on the car
-				
+				//returns a payment object from the account map
 				PaymentBean payBean = PaymentMap.returnAccount(customer.getUserName());
 				System.out.println(customer.getFirstName()+" your montly payment owed is: "+payBean.getMonthlyPayment());
 				System.out.println("Would you like to make a payment?");
 				System.out.println("To make a payment press 1");
 				int selection = ul.parsedInt();
+				
+				//if the user wants to make a payment
 				if(selection == 1) {
-					 payBean.setRemainingBalance(payBean.getRemainingBalance() - payBean.getMonthlyPayment());
-					 SQLUtility.tryRemoveFromPayment(payBean);
-					 SQLUtility.tryAddNewAccount(payBean);
-					 SQLUtility.tryCreateNewTransactionSQL(payBean);
-					 TransactionLedger.populateLedger(payBean);
+					 payBean.setRemainingBalance(payBean.getRemainingBalance() - payBean.getMonthlyPayment());		//reduces the remaining balance by the montly payment
+					 SQLUtility.tryRemoveFromPayment(payBean);		//removes the previous record of the payment
+					 SQLUtility.tryAddNewAccount(payBean);			//replaces it with a new payment
+					 SQLUtility.tryCreateNewTransactionSQL(payBean);	//updates the database
+					 TransactionLedger.populateLedger(payBean);			//populates ledger with a new transaction
 					 System.out.println("Payment received");
 					 System.out.println("Only $"+ payBean.getRemainingBalance() +" left!");
 				}
@@ -76,12 +79,12 @@ public class CustomerSwitch {
 				System.out.println("Returning to menu");
 				break;
 				
-			case 0:
+			case 0://exit customer menu
 				System.out.println("Logging out");
 				exitMenu = true;
 				break;
 				
-			default :
+			default ://not a case input
 				System.out.println("Invalid selection, try again!");
 				break;
 				

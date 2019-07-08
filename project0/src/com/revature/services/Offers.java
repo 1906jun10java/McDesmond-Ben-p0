@@ -74,16 +74,17 @@ public class Offers {
 		System.out.println("Select an offer by entering the dollar amount");
 		offer = ul.parsedDouble();
 		
+		//if the offer table contains the key process the sale
 		if(offers.containsKey(offer)) {
-			OfferBean o = offers.get(offer);
-			PaymentMap.createNewPaymentAccount(o);
-			Car c = CarLot.returnCarByCarId(o.getCarId());
-			SoldCars.addCarObject(c);
-			CarLot.removeCar(c);
-			SQLUtility.tryAddNewSoldCarSQL(c);
-			SQLUtility.tryPurgeLowOffers(o);
-			SQLUtility.tryRemoveCarFromLotSQL(c);
-			System.out.println("Offer selected!");
+			OfferBean o = offers.get(offer);			//returns an offer object
+			PaymentMap.createNewPaymentAccount(o);		//adds the new payment account to the payment map
+			Car c = CarLot.returnCarByCarId(o.getCarId());	//uses the carId to return a car from the carLot
+			SoldCars.addCarObject(c);					//adds the car object to the sold cars list
+			CarLot.removeCar(c);						//removes the car from the lot
+			SQLUtility.tryAddNewSoldCarSQL(c);			//adds the car to the sold lot
+			SQLUtility.tryPurgeLowOffers(o);			//purges all low offers on that car from the offers table
+			SQLUtility.tryRemoveCarFromLotSQL(c);		//removes the car from the lot on the database
+			System.out.println("Offer selected!");		
 		}
 		
 		else {

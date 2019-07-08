@@ -46,6 +46,7 @@ public class Login {
 
 	}
 
+	//takes a user name and returns the corresponding customerLogin
 	public static Customer returnCustomer(String userName) {
 		return customerLogin.get(userName);
 	}
